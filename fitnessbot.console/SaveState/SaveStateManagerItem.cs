@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Timers;
 
-namespace fitnessbot.console.userweight
+namespace fitnessbot.console.savestate
 {
     public class SaveStateManagerItem : SaveStateManagerItemBase
     {

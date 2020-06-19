@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using fitnessbot.console.userweight;
+using fitnessbot.console.savestate;
 
 namespace fitnessbot.console.usersettings
 {

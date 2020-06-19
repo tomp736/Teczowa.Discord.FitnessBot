@@ -2,7 +2,8 @@ using DSharpPlus.CommandsNext;
 using DSharpPlus;
 using System.Threading.Tasks;
 using DSharpPlus.CommandsNext.Attributes;
-using fitnessbot.console.userweight;
+using System.Linq;
+using fitnessbot.console.userlog;
 
 namespace fitnessbot.console
 {
@@ -14,24 +15,26 @@ namespace fitnessbot.console
             _client = client;
         }
 
+        private static readonly string[] _singlePointLogItems = new string[] { "weight", "sleep" };
+
         [Command("log")]
         public async Task Log(CommandContext ctx)
         {
             var args = ctx.RawArgumentString.Trim().Split(" ");
-            if(args[0] == "weight")
+            if(_singlePointLogItems.Contains(args[0]))
             {
-                UserWeightResponse response = null;
+                UserLogResponse response = null;
 
                 if(args.Length == 2)
                 {
                     if(args[1] == "show")
                     {
-                        response = UserWeightManager.Service.ListUserWeight(ctx.User.Username);
+                        response = UserLogManager.Service.ShowLog(ctx.User.Username, args[0]);
                     }
                     else
                     {
-                        response = UserWeightManager.Service.LogUserWeight(ctx.User.Username, args[1]);
-                    }                    
+                        response = UserLogManager.Service.LogPoint(ctx.User.Username, args[0], args[1]);
+                    }        
                 }                    
                 else
                 {
@@ -40,7 +43,7 @@ namespace fitnessbot.console
                 await response.WriteTo(ctx.Channel);
                 return;
             }    
-            await ctx.Channel.SendMessageAsync($"no logger configured for {args[0]}").ConfigureAwait(false); 
+            await ctx.Channel.SendMessageAsync($"no logger of type '{args[0]}' exists").ConfigureAwait(false); 
         }
 
 

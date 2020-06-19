@@ -1,18 +1,9 @@
-using Newtonsoft.Json;
 using DSharpPlus.CommandsNext;
 using DSharpPlus;
 using System.Threading.Tasks;
 using DSharpPlus.CommandsNext.Attributes;
-using System.Xml;
-using System.Net;
-using System.Text.RegularExpressions;
-using System.Collections.Generic;
-using System.ServiceModel.Syndication;
-using System.IO;
 using System.Linq;
-using System;
 using fitnessbot.console.usersettings;
-using fitnessbot.console.userweight;
 
 namespace fitnessbot.console
 {

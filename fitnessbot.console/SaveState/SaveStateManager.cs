@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace fitnessbot.console.userweight
+namespace fitnessbot.console.savestate
 {
     public class SaveStateManager
     {

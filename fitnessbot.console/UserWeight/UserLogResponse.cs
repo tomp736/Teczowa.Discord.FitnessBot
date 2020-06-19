@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace fitnessbot.console.userweight
+namespace fitnessbot.console.userlog
 {
-    public class UserWeightResponse
+    public class UserLogResponse
     {
         public List<string> ErrorMessageCollection {get;set;} = new List<string>();
         public List<string> InfoMessageCollection {get;set;} = new List<string>();
